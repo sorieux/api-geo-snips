@@ -44,7 +44,7 @@ def action_wrapper(hermes, intentMessage, conf):
    
     city = intentMessage.slots.city.first().value
 
-    response = requests.get('https://geo.api.gouv.fr/communes?nom={}&fields=nom'.format(city))
+    response = requests.get('https://geo.api.gouv.fr/communes?nom={}&fields=nom,codesPostaux&format=json'.format(city))
     data = response.json()
     print data
 
