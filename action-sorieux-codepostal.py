@@ -46,6 +46,7 @@ def action_wrapper(hermes, intentMessage, conf):
 
     response = requests.get('https://geo.api.gouv.fr/communes?nom={}&fields=nom'.format(city))
     data = response.json()
+    print data
 
     current_session_id = intentMessage.session_id
     hermes.publish_end_session(current_session_id, data[0]['codesPostaux'][0])
